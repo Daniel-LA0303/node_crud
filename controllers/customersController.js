@@ -11,7 +11,6 @@ exports.newCustomer = async (req, res, next) => {
     } catch (error) {
         //errores
         res.send(error);
-        // console.log(error);
         next();
     }
 }
@@ -23,7 +22,6 @@ exports.getCustomers = async(req, res, next) => {
         const customers = await Customers.find({});
         res.json(customers)
     } catch (error) {   
-        console.log(error);
         next();
     }
 }
@@ -36,7 +34,6 @@ exports.getOneCustomer = async(req, res, next) => {
         res.json(customer);
         
     } catch (error) {
-        console.log(error);
         res.json({mensaje: 'Ese Cliente no existe'});
         next();
     }
@@ -51,7 +48,6 @@ exports.updateCustomer = async(req, res, next) => {
         );
         res.json(customer);
     } catch (error) {
-        console.log(error);
         next();
     }
 }
@@ -63,9 +59,7 @@ exports.deleteCustomer = async(req, res, next) => {
         )
         res.json({mensaje: 'El cliente se ha eliminado'})
     } catch (error) {
-        console.log(error);
         next();
-
     }
 }
 
