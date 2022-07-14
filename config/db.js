@@ -5,7 +5,7 @@ require('dotenv').config({path: 'variables.env'});
 //4.conectar db
 const conectarDB = async() => {
     try {
-        await mongoose.connect(process.env.DB_URL, {
+        await mongoose.connect('mongodb+srv://root:root@cluster0.odotr.mongodb.net/customers', {
             useNewUrlParser: true,
             useUnifiedTopology: true
         });

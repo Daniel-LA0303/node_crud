@@ -42,7 +42,7 @@ exports.getOneCustomer = async(req, res, next) => {
 exports.updateCustomer = async(req, res, next) => {
     try {
         const customer = await Customers.findOneAndUpdate(
-            {_id : req.params.id}, 
+            {__id : req.params.__id}, 
             req.body, 
             {new: true}
         );
@@ -55,7 +55,7 @@ exports.updateCustomer = async(req, res, next) => {
 exports.deleteCustomer = async(req, res, next) => {
     try {
         await Customers.findOneAndDelete(
-            {_id : req.params.id}
+            {__id : req.params.__id}
         )
         res.json({mensaje: 'El cliente se ha eliminado'})
     } catch (error) {

@@ -5,29 +5,27 @@ const Schema = mongoose.Schema;
 const customersSchema = new Schema({
     name: {
         type: String,
-        trim: true
     },
     email: {
         type: String,
-        unique: true,
-        lowercase: true,
-        trim: true
     },
     tel: {
         type: String,
-        trim: true
     },
     address: {
         type: String,
-        trim: true
+    },
+    kind:{
+        type: String,
     },
     category: {
         type: String,
-        trim: true
     },
     registerDate: {
         type: String,
-        trim: true
+    },
+    __id: {
+        type: String,
     }
 });
 

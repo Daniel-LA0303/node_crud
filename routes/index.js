@@ -2,8 +2,6 @@ const express = require('express');
 const router = express.Router();
 
 const customersController = require('../controllers/customersController');
-
-
 module.exports = function(){
 
     //6. Agrega nuevos clientes via Post
@@ -14,16 +12,12 @@ module.exports = function(){
     router.get('/customers/getAll',
         customersController.getCustomers);
 
-    //11. muestra un cliente por id
-    router.get('/customers/:id',
-        customersController.getOneCustomer);
-
     //13. Actualizar un cliente 
-    router.put('/customers/:id', 
+    router.put('/customers/:__id', 
         customersController.updateCustomer);
     
     //15. eliminar un cliente por id
-    router.delete('/customers/:id', 
+    router.delete('/customers/:__id', 
         customersController.deleteCustomer);
 
     return router;
