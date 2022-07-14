@@ -34,11 +34,11 @@ app.use(express.urlencoded({extended : true}));
 //3. rutas de la app
 app.use('/', routes());
 app.get('/', (req, res)=> {
-    res.json({message: 'hello form rest api node, mongo'})
+    res.json({message: 'hello form rest api node, mongo'});
 });
 
 //2. port 
-const PORT = process.env.PORT || 8080;
+const PORT = process.env.PORT || 3000;
 // server
 app.listen(PORT, () => {
     console.log('SERVE ', PORT);
