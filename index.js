@@ -1,24 +1,11 @@
 const express = require('express');
 const routes = require('./routes');
+const {swaggerDocs: sw1} = require("./swagger");
 
 const conectarDB = require('./config/db');
 
 //cors permite que un cliente se conecte a unservidor
 const cors = require('cors');
-// const whitelist = [process.env.FRONTEND_URL];
-// const corsOptions = {
-//     origin : (origin, callback) => {
-//         // console.log(origin);
-//         //revisr si la peticon viene de un servidor que esta en whitelist
-//         const existe = whitelist.some(dominio => dominio === origin);
-
-//         if(existe){
-//             callback(null, true);
-//         }else{
-//             callback(new Error('No permitido por CORS'));
-//         }
-//     }
-// }
 
 //1. crear el servidor
 const app = express();
@@ -32,7 +19,7 @@ app.use(express.urlencoded({extended : true}));
 
 
 //3. rutas de la app
-app.use('/', routes());
+app.use('/api', routes());
 app.get('/', (req, res)=> {
     res.json({message: 'hello form rest api node, mongo'});
 });
@@ -42,4 +29,5 @@ const PORT = process.env.PORT || 3000;
 // server
 app.listen(PORT, () => {
     console.log('SERVE ', PORT);
+    sw1(app, PORT);
 });
